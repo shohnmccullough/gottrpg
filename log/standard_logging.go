@@ -70,3 +70,7 @@ func (l *StandardLogger) Log(log Log, args ...interface{}) {
 func (l *StandardLogger) InvalidArgument(argumentName string) {
 	l.Errorf(invalidArgumentMessage.Message, argumentName)
 }
+
+func (l *StandardLogger) ValidArgument(argumentName string) {
+	l.Infof(argumentName)
+}

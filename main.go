@@ -14,11 +14,9 @@ func main() {
 		return
 	}
 
-	router := server.Router{}
-
-	// TODO: create character and associated routes (modify attrs, spells, etc.)
-
-	// TODO: going to need a lot of .Use() statements
-	router.Use("character", routes.Character)
-	server.InitServer().ListenAndServe()
+	if len(os.Args) > 1 && os.Args[1] == "serve" {
+		router := server.Router{}
+		router.Use("character", routes.Character)
+		server.InitServer().ListenAndServe()
+	}
 }
